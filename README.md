@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stellar Crowdfund
 
-## Getting Started
+A transparent crowdfunding dApp built on the Stellar Testnet.
 
-First, run the development server:
+This application allows users to connect their Freighter wallet, view their XLM balance, and send transactions on-chain. It serves as the foundation for a fully transparent crowdfunding system where every contribution is verifiable on the Stellar blockchain.
 
-```bash
+The project focuses on clean architecture, strong typing, and reliable testing rather than quick prototypes.
+
+
+------------------------------------------------------------
+Features
+------------------------------------------------------------
+
+• Connect / Disconnect Freighter wallet
+• Display shortened public key
+• Fetch real-time XLM balance
+• Send XLM transactions on Stellar Testnet
+• Transaction success and failure feedback
+• Horizon + Freighter integration
+• Unit tests for services, hooks, and UI
+• ESLint clean codebase
+
+
+------------------------------------------------------------
+Tech Stack
+------------------------------------------------------------
+
+Frontend
+- Next.js (App Router)
+- React
+- TypeScript
+
+Blockchain
+- Stellar SDK
+- Horizon API
+- Freighter Wallet
+
+Testing
+- Jest
+- React Testing Library
+
+Tooling
+- ESLint
+- PostCSS
+
+
+------------------------------------------------------------
+Project Structure
+------------------------------------------------------------
+
+src/
+ ├─ app/          → Next.js routes and layout
+ ├─ components/   → UI components
+ ├─ hooks/        → state + side effects
+ ├─ services/     → Stellar blockchain logic
+ ├─ types/        → shared TypeScript types
+ ├─ utils/        → helpers
+
+Architecture principle:
+
+UI → Hooks → Services → Stellar SDK
+
+Components never directly call blockchain code.
+
+
+------------------------------------------------------------
+Getting Started
+------------------------------------------------------------
+
+1. Install dependencies
+
+npm install
+
+
+2. Run development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+------------------------------------------------------------
+Wallet Setup
+------------------------------------------------------------
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install Freighter Wallet extension
+2. Switch network to Testnet
+3. Fund wallet using Stellar Friendbot
+4. Connect wallet inside the app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+------------------------------------------------------------
+Available Scripts
+------------------------------------------------------------
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run dev       → start dev server
+npm run build     → production build
+npm run start     → start production server
+npm run lint      → run ESLint
+npm test          → run unit tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+------------------------------------------------------------
+Development Standards
+------------------------------------------------------------
+
+• All blockchain logic isolated in services
+• Hooks manage async state
+• Components are UI only
+• No direct SDK usage inside components
+• Loading and error states handled explicitly
+• No "any" types
+• No unused variables
+• All network calls mocked in tests
+
+Tests cover:
+• balance fetching
+• transaction logic
+• wallet state
+• UI rendering
+
+
+------------------------------------------------------------
+Screenshots
+------------------------------------------------------------
+
+Add the following screenshots here:
+
+- Wallet not connected
+![Wallet Not Connected](./public/screenShots/Ekran%20görüntüsü%202026-02-11%20142738.png)
+- Balance displayed
+![Balance displayed](./public/screenShots/Ekran%20görüntüsü%202026-02-11%20142756.png)
+- Successful transaction
+![Successful transaction](./public/screenShots/Ekran%20görüntüsü%202026-02-11%20142853.png)
+
+
+
+------------------------------------------------------------
+License
+------------------------------------------------------------
+
+MIT
