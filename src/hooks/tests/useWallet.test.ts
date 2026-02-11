@@ -11,7 +11,9 @@ describe("useWallet", () => {
     const { result } = renderHook(() => useWallet())
 
     await act(async () => {
-      await result.current.connect()
+      await act(async () => {
+        await result.current.connect()
+      })
     })
 
     expect(result.current.connected).toBe(true)
